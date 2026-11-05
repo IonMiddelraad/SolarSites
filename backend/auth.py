@@ -38,7 +38,6 @@ def register_user(data: RegisterRequest):
 
 def login_user(data: LoginRequest):
     connection = connect_to_db("app.db")
-    connection.row_factory = sqlite3.Row
 
     user = connection.execute(
         "SELECT * FROM users WHERE email = ?",
@@ -95,7 +94,6 @@ def get_current_user(
     token_digest = hash_token(token)
 
     connection = connect_to_db("app.db")
-    connection.row_factory = sqlite3.Row
 
     # find not expired session
     session = connection.execute("""

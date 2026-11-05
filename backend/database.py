@@ -2,7 +2,9 @@ import sqlite3
 import time
 
 def connect_to_db(database_name: str):
-    return sqlite3.connect(database_name)
+    connection = sqlite3.connect(database_name)
+    connection.row_factory = sqlite3.Row
+    return connection
 
 
 def init_db():
