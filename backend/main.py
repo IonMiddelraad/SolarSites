@@ -152,6 +152,3 @@ def get_site_battery():
     # code here
     test = send_PVcalc_request(52.09, 5.12, 4)
     return test
-
-
-# testting
